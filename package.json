@@ -1,0 +1,29 @@
+{
+    "name": "interfaces",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "build": "npx shx rm -rf build && npx babel src/ -d build/ --quiet",
+        "prestart": "npm run build",
+        "start": "npm run startNoCompile",
+        "startNoCompile": "cd build && node app.js",
+        "dev": "npx cross-env NODE_ENV=development npx nodemon --exec npm start --watch src"
+    },
+    "author": "Michael Fletzberger",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.4.5",
+        "@babel/node": "^7.4.5",
+        "@babel/preset-env": "^7.4.5",
+        "nodemon": "^2.0.0",
+        "shx": "^0.3.2"
+    },
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "mysql2": "^2.0.1",
+        "sequelize": "^5.21.2"
+    }
+}
