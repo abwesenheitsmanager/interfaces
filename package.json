@@ -8,7 +8,7 @@
         "prestart": "npm run build",
         "start": "npm run startNoCompile",
         "startNoCompile": "cd build && node app.js",
-        "dev": "npx cross-env NODE_ENV=development npx nodemon --exec npm start --watch src"
+        "dev": "npx nodemon --exec npm start --watch src"
     },
     "author": "Michael Fletzberger",
     "license": "MIT",

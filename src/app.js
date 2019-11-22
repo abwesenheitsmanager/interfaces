@@ -1,6 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
-dotenv.config({ path: './../.env' });
+import {sequelize} from "../cfg/conn";
+
+dotenv.config({path: './../.env'});
 
 const app = express();
 
@@ -12,4 +14,13 @@ const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`)
+    sequelize
+        .authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully.');
+        })
+        .catch(err => {
+            console.error('Unable to connect to the database:', err);
+        });
+
 })
